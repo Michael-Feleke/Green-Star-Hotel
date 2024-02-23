@@ -6,6 +6,7 @@ import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route path="settings" element={<Settings />} />
         <Route path="account" element={<Account />} />
         <Route path="login" element={<Login />} />
-        <Route path="*" element={<Dashboard />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
