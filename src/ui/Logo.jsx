@@ -1,7 +1,11 @@
 function Logo() {
   return (
     <div className="text-center self-center">
-      <img className="h-36 w-auto" src="/logo-light.png" alt="Logo" />
+      <img
+        className="w-[14rem] h-[14rem] rounded-full"
+        src="/Logo.png"
+        alt="Logo"
+      />
     </div>
   );
 }
