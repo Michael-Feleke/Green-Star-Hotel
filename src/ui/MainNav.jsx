@@ -1,46 +1,75 @@
-import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-const NavList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-`;
+import {
+  HiOutlineCalendarDays,
+  HiOutlineCog6Tooth,
+  HiOutlineHome,
+  HiOutlineHomeModern,
+  HiOutlineUsers,
+} from "react-icons/hi2";
 
-const Link = styled.a`
-  &:link,
-  &:visited {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
+function MainNav() {
+  return (
+    <nav>
+      <ul className="flex flex-col gap-4">
+        <li>
+          <NavLink
+            to="/dashboard"
+            className="flex items-center gap-[1.2rem] text-gray-600  font-[500] text-[1.6rem] py-[1.2rem] px-[2.4rem] transition-all duration-300  hover:text-emerald-600 hover:bg-gray-100 "
+            activeClassName="text-emerald-600 bg-gray-100"
+          >
+            <HiOutlineHome className="hover:text" size={24} />
 
-    color: var(--color-grey-600);
-    font-size: 1.6rem;
-    font-weight: 500;
-    padding: 1.2rem 2.4rem;
-    transition: all 0.3s;
-  }
+            <span>Home</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/bookings"
+            className="flex items-center gap-[1.2rem] text-gray-600  font-[500] text-[1.6rem] py-[1.2rem] px-[2.4rem] transition-all duration-300  hover:text-emerald-600 hover:bg-gray-100 "
+            activeClassName="text-emerald-600 bg-gray-100"
+          >
+            <HiOutlineCalendarDays className="hover:text" size={24} />
 
-  /* This works because react-router places the active class on the active NavLink */
-  &:hover,
-  &:active,
-  &.active:link,
-  &.active:visited {
-    color: var(--color-grey-800);
-    background-color: var(--color-grey-50);
-    border-radius: var(--border-radius-sm);
-  }
+            <span>Bookings</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/cabins"
+            className="flex items-center gap-[1.2rem] text-gray-600  font-[500] text-[1.6rem] py-[1.2rem] px-[2.4rem] transition-all duration-300  hover:text-emerald-600 hover:bg-gray-100 "
+            activeClassName="text-emerald-600 bg-gray-100"
+          >
+            <HiOutlineHomeModern className="hover:text" size={24} />
 
-  & svg {
-    width: 2.4rem;
-    height: 2.4rem;
-    color: var(--color-grey-400);
-    transition: all 0.3s;
-  }
+            <span>Cabins</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/users"
+            className="flex items-center gap-[1.2rem] text-gray-600  font-[500] text-[1.6rem] py-[1.2rem] px-[2.4rem] transition-all duration-300  hover:text-emerald-600 hover:bg-gray-100 "
+            activeClassName="text-emerald-600 bg-gray-100"
+          >
+            <HiOutlineUsers className="hover:text" size={24} />
 
-  &:hover svg,
-  &:active svg,
-  &.active:link svg,
-  &.active:visited svg {
-    color: var(--color-brand-600);
-  }
-`;
+            <span>Users</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/settings"
+            className="flex items-center gap-[1.2rem] text-gray-600  font-[500] text-[1.6rem] py-[1.2rem] px-[2.4rem] transition-all duration-300  hover:text-emerald-600 hover:bg-gray-100 "
+            activeClassName="text-emerald-600 bg-gray-100"
+          >
+            <HiOutlineCog6Tooth className="hover:text" size={24} />
+
+            <span>Settings</span>
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+export default MainNav;
