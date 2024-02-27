@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { formatCurrency } from "../../utils/helpers";
 import { deleteRoom } from "../../services/apiRooms";
+import toast from "react-hot-toast";
 
 function RoomRow({ room }) {
   const {
@@ -17,10 +18,13 @@ function RoomRow({ room }) {
   const { isLoading: isDeleting, mutate } = useMutation({
     mutationFn: deleteRoom,
     onSuccess: () => {
+      toast.success("Room successfully deleted!");
       queryClient.invalidateQueries({
         queryKey: ["rooms"],
       });
     },
+
+    onError: (err) => toast.error(err.message),
   });
 
   return (

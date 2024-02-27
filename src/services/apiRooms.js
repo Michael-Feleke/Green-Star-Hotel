@@ -5,7 +5,7 @@ export async function getRooms() {
 
   if (error) {
     console.error(error);
-    throw new Error("Rooms could not be loaded");
+    throw new Error("Rooms could not be loaded.");
   }
 
   return data;
@@ -16,6 +16,6 @@ export async function deleteRoom(id) {
 
   if (error) {
     console.error(error);
-    throw new Error("Room could not be deleted");
+    throw new Error("Room could not be deleted.");
   }
 }
