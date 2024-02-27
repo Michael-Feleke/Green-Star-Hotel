@@ -40,9 +40,9 @@ function RoomRow({ room }) {
   const { name, maxCapacity, regularPrice, discount, image } = room;
 
   return (
-    <div className="grid grid-cols-[0.6fr,1.8fr,2.2fr,1fr,1fr,1fr] gap-[2.4rem] items-center px-[2.4rem] py-[1.4rem]">
+    <div className="grid grid-cols-[0.6fr,1.8fr,2.2fr,1fr,1fr,1fr] gap-[2.4rem] items-center px-[2.4rem] py-[1.4rem] bg-white  shadow-md  mt-4">
       <img
-        className="block w-[6.4rem] object-cover scale-[1.5] translate-x-[-7px]"
+        className="block w-[6rem] h-[4rem] scale-[1.5] translate-x-[-7px]"
         src={image}
         alt="image"
       />
