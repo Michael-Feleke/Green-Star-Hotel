@@ -68,12 +68,14 @@ export default function Button({
   variation,
   type = "button",
   disabled = false,
+  onClick,
   children,
 }) {
   if (variation === "primary")
     return (
       <button
         type={type}
+        onClick={onClick}
         disabled={disabled}
         className={`focus:outline-none text-white bg-emerald-500 hover:bg-emerald-600  font-medium rounded-lg text-2xl px-5 py-3 me-2 mb-2 ${
           disabled ? "opacity-50" : ""
@@ -87,8 +89,25 @@ export default function Button({
     return (
       <button
         type={type}
+        onClick={onClick}
         disabled={disabled}
-        className="focus:outline-none text-slate-900 bg-gray-100 hover:bg-gray-200  font-medium rounded-lg text-2xl px-5 py-3 me-2 mb-2"
+        className={`focus:outline-none text-slate-900 bg-gray-100 hover:bg-gray-200  font-medium rounded-lg text-2xl px-5 py-3 me-2 mb-2  ${
+          disabled ? "opacity-50" : ""
+        } `}
+      >
+        {children}
+      </button>
+    );
+
+  if (variation === "delete")
+    return (
+      <button
+        type={type}
+        onClick={onClick}
+        disabled={disabled}
+        className={`focus:outline-none text-white bg-red-500 hover:bg-red-600  font-medium rounded-lg text-2xl px-5 py-3 me-2 mb-2  ${
+          disabled ? "opacity-50" : ""
+        }`}
       >
         {children}
       </button>
