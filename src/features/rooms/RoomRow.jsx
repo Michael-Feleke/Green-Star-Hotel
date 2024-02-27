@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import formatCurrency from "../../utils/helpers";
+import { formatCurrency } from "../../utils/helpers";
 
 const TableRow = styled.div`
   display: grid;
@@ -50,11 +50,14 @@ function RoomRow({ room }) {
         {name}
       </div>
       <div>Fits up to {maxCapacity} guests</div>
-      <div className={`font-["Sono"] font-[600]`}>{regularPrice}</div>
+      <div className={`font-["Sono"] font-[600]`}>
+        {formatCurrency(regularPrice)}
+      </div>
       <div className={`font-["Sono"] font-[500] text-emerald-700`}>
-        {/* {formatCurrency(discount)} */}
+        {formatCurrency(discount)}
         {discount}
       </div>
+      <button>Delete</button>
     </div>
   );
 }
