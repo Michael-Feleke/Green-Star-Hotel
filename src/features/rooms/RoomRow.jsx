@@ -1,7 +1,27 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { formatCurrency } from "../../utils/helpers";
+import { deleteRoom } from "../../services/apiRooms";
 
 function RoomRow({ room }) {
-  const { name, maxCapacity, regularPrice, discount, image } = room;
+  const {
+    id: roomdId,
+    name,
+    maxCapacity,
+    regularPrice,
+    discount,
+    image,
+  } = room;
+
+  const queryClient = useQueryClient();
+
+  const { isLoading: isDeleting, mutate } = useMutation({
+    mutationFn: deleteRoom,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["rooms"],
+      });
+    },
+  });
 
   return (
     <div className="grid grid-cols-[0.6fr,1.8fr,2.2fr,1fr,1fr,1fr] gap-[2.4rem] items-center px-[2.4rem] py-[1.4rem] shadow-md">
@@ -21,7 +41,7 @@ function RoomRow({ room }) {
         {formatCurrency(discount)}
         {discount}
       </div>
-      <button>Delete</button>
+      <button onClick={() => mutate(roomdId)}>Delete</button>
     </div>
   );
 }
