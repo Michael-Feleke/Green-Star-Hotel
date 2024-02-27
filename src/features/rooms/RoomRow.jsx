@@ -69,12 +69,12 @@ function RoomRow({ room }) {
             </p>
             <div>
               <p
-                className={`block  text-xl antialiased font-xl leading-relaxed text-blue-gray-900 font-["Sono"] line-through text-red-500`}
+                className={`block  text-2xl antialiased font-bold font-xl leading-relaxed text-blue-gray-900 font-["Sono"] line-through text-slate-400`}
               >
                 <span>{formatCurrency(regularPrice)}</span>
               </p>
               <p
-                className={`block  text-xl antialiased font-xl leading-relaxed text-blue-gray-900 font-["Sono"] text-emerald-500`}
+                className={`block  antialiased text-2xl font-bold leading-relaxed text-blue-gray-900 font-["Sono"] text-black`}
               >
                 <span>{formatCurrency(regularPrice - discount)}</span>
               </p>
@@ -86,7 +86,9 @@ function RoomRow({ room }) {
           </p>
         </div>
 
-        <div className="p-6 pt-0 text-center">
+        <div className="p-6 pt-0 flex items-center justify-around">
+          <Button variation="primary">Edit</Button>
+          <Button variation="secondary">Duplicate</Button>
           <Button
             disabled={isDeleting}
             variation="delete"
