@@ -6,12 +6,28 @@ import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
 import Label from "../../ui/Label";
 import { useForm } from "react-hook-form";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createRoom } from "../../services/apiRooms";
+import toast from "react-hot-toast";
 
 function CreateRoomForm() {
   const { register, handleSubmit } = useForm();
+  const queryClient = useQueryClient();
+
+  const { mutate, isLoading } = useMutation({
+    mutationFn: createRoom,
+    onSuccess: () => {
+      toast.success("Room created successfully!");
+      queryClient.invalidateQueries({
+        queryKey: ["rooms"],
+      });
+    },
+
+    onError: (err) => toast.error(err),
+  });
 
   function onSubmit(data) {
-    console.log(data);
+    mutate(data);
   }
 
   return (
