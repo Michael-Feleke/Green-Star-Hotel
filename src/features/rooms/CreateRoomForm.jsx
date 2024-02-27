@@ -83,7 +83,7 @@ function CreateCabinForm() {
     //     <Button>Edit cabin</Button>
     //   </FormRow>
     // </Form>
-    <form className="bg-white shadow-md flex items-center justify-center flex-col py-20 w-[70%]">
+    <form className="bg-white shadow-md flex items-center justify-center flex-col py-20 ">
       <FormRow>
         <Input type="text" label="Cabin Name" />
       </FormRow>
@@ -113,7 +113,7 @@ function CreateCabinForm() {
         <Button variation="secondary" type="reset">
           Cancel
         </Button>
-        <Button>Edit cabin</Button>
+        <Button variation="primary">Edit cabin</Button>
       </FormRow>
     </form>
   );

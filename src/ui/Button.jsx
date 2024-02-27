@@ -64,13 +64,24 @@
 
 // export default Button;
 
-export default function Button({ children }) {
-  return (
-    <button
-      type="button"
-      className="focus:outline-none text-white bg-emerald-500 hover:bg-emerald-600  font-medium rounded-lg text-2xl px-5 py-3 me-2 mb-2  "
-    >
-      {children}
-    </button>
-  );
+export default function Button({ variation, type = "button", children }) {
+  if (variation === "primary")
+    return (
+      <button
+        type={type}
+        className="focus:outline-none text-white bg-emerald-500 hover:bg-emerald-600  font-medium rounded-lg text-2xl px-5 py-3 me-2 mb-2  "
+      >
+        {children}
+      </button>
+    );
+
+  if (variation === "secondary")
+    return (
+      <button
+        type={type}
+        className="focus:outline-none text-slate-900 bg-gray-100 hover:bg-gray-200  font-medium rounded-lg text-2xl px-5 py-3 me-2 mb-2"
+      >
+        {children}
+      </button>
+    );
 }
