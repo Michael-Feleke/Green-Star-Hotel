@@ -28,7 +28,7 @@ export default function FileInput() {
   return (
     <label
       htmlFor="uploadFile1"
-      className="bg-white text-center rounded w-full sm:w-[360px] min-h-[160px] py-4 px-4 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 mx-auto font-[sans-serif] m-4"
+      className="bg-white text-center rounded w-full sm:w-[360px] min-h-[160px] py-4 px-4 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300  font-[sans-serif] m-4"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
