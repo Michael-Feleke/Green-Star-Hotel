@@ -7,7 +7,7 @@ function Rooms() {
     <>
       <Row type="horizontal">
         <Heading className="mb-8" as="h1">
-          All cabins
+          All rooms
         </Heading>
         <p>TEST</p>
       </Row>
