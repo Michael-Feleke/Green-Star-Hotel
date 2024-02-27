@@ -60,7 +60,7 @@ function RoomRow({ room }) {
           />
         </div>
         <div className="p-6 h-auto">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-6">
             <p
               className={`blocktext-base antialiased font-bold leading-relaxed text-blue-gray-900 font-["Sono"]`}
             >
@@ -85,7 +85,9 @@ function RoomRow({ room }) {
           </p>
         </div>
 
-        <div className="p-6 pt-0 text-center"></div>
+        <div className="p-6 pt-0 text-center">
+          <button onClick={() => mutate(roomdId)}>Delete</button>
+        </div>
       </div>
     </li>
   );
