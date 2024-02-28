@@ -35,7 +35,7 @@ function CreateRoomForm() {
   }
 
   function onError(errors) {
-    console.log(errors);
+    // console.log(errors);
   }
 
   return (
@@ -49,6 +49,7 @@ function CreateRoomForm() {
           register={register}
           registerObject={{ required: "This field is required" }}
           name="name"
+          disabled={isAddingRoom}
         />
         <Label>Cabin Name</Label>
         {errors?.name?.message && <Error>{errors.name.message}</Error>}
@@ -57,6 +58,7 @@ function CreateRoomForm() {
       <FormRow>
         <Input
           type="number"
+          disabled={isAddingRoom}
           register={register}
           registerObject={{
             required: "This field is required",
@@ -76,6 +78,7 @@ function CreateRoomForm() {
       <FormRow>
         <Input
           type="number"
+          disabled={isAddingRoom}
           register={register}
           registerObject={{
             required: "This field is required",
@@ -95,6 +98,7 @@ function CreateRoomForm() {
       <FormRow>
         <Input
           type="number"
+          disabled={isAddingRoom}
           defaultValue={0}
           register={register}
           registerObject={{
@@ -115,6 +119,7 @@ function CreateRoomForm() {
 
       <FormRow>
         <Textarea
+          disabled={isAddingRoom}
           register={register}
           name="description"
           registerObject={{ required: "This field is required" }}
