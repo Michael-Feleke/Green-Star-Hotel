@@ -1,5 +1,4 @@
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useLocation } from "react-router-dom";
 import {
   HiOutlineCalendarDays,
   HiOutlineCog6Tooth,
@@ -7,10 +6,28 @@ import {
   HiOutlineHomeModern,
   HiOutlineUsers,
 } from "react-icons/hi2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function MainNav() {
-  const [isListSelected, setIsListSelected] = useState(0);
+  const location = useLocation();
+  const [isListSelected, setIsListSelected] = useState(null);
+
+  useEffect(() => {
+    // Extract the pathname from the location object
+    const { pathname } = location;
+    // Determine the selected index based on the pathname
+    if (pathname === "/dashboard") {
+      setIsListSelected(0);
+    } else if (pathname === "/bookings") {
+      setIsListSelected(1);
+    } else if (pathname === "/rooms") {
+      setIsListSelected(2);
+    } else if (pathname === "/users") {
+      setIsListSelected(3);
+    } else if (pathname === "/settings") {
+      setIsListSelected(4);
+    }
+  }, [location]);
 
   function handleItemClicked(index) {
     setIsListSelected(index);
