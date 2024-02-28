@@ -55,7 +55,6 @@ export default function FileInput({ register, name, registerObject }) {
       </label>
       <input
         type="file"
-        accept="image/*"
         id="uploadFile1"
         className="hidden"
         {...register(name, registerObject)}

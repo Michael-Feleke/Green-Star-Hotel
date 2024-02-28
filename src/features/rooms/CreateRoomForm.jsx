@@ -31,8 +31,7 @@ function CreateRoomForm() {
   });
 
   function onSubmit(data) {
-    console.log(data);
-    mutate({ ...data });
+    mutate({ ...data, image: data.image.at(0) });
   }
 
   function onError(errors) {
@@ -43,6 +42,7 @@ function CreateRoomForm() {
     <form
       className="bg-white shadow-md flex items-center justify-center flex-col py-20 gap-10 "
       onSubmit={handleSubmit(onSubmit, onError)}
+      encType="multipart/form-data"
     >
       <FormRow>
         <Input
