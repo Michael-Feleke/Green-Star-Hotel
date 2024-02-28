@@ -31,23 +31,42 @@ function CreateRoomForm() {
     mutate(data);
   }
 
+  function onError(errors) {
+    console.log(errors);
+  }
+
   return (
     <form
       className="bg-white shadow-md flex items-center justify-center flex-col py-20 gap-10 "
-      onSubmit={handleSubmit(onSubmit)} // Move handleSubmit here
+      onSubmit={handleSubmit(onSubmit, onError)}
     >
       <FormRow>
-        <Input type="text" register={register} name="name" />
+        <Input
+          type="text"
+          register={register}
+          registerObject={{ required: "This field is required" }}
+          name="name"
+        />
         <Label>Cabin Name</Label>
       </FormRow>
 
       <FormRow>
-        <Input type="number" register={register} name="maxCapacity" />
+        <Input
+          type="number"
+          register={register}
+          registerObject={{ required: "This field is required" }}
+          name="maxCapacity"
+        />
         <Label>Maximum Capacity</Label>
       </FormRow>
 
       <FormRow>
-        <Input type="number" register={register} name="regularPrice" />
+        <Input
+          type="number"
+          register={register}
+          registerObject={{ required: "This field is required" }}
+          name="regularPrice"
+        />
         <Label>Regular Price</Label>
       </FormRow>
 
@@ -56,13 +75,18 @@ function CreateRoomForm() {
           type="number"
           defaultValue={0}
           register={register}
+          registerObject={{ required: "This field is required" }}
           name="discount"
         />
         <Label>Discount</Label>
       </FormRow>
 
       <FormRow>
-        <Textarea register={register} name="description" />
+        <Textarea
+          register={register}
+          name="description"
+          registerObject={{ required: "This field is required" }}
+        />
         <Label>Description for the room</Label>
       </FormRow>
 

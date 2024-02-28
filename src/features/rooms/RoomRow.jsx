@@ -15,8 +15,6 @@ function RoomRow({ room }) {
     description,
   } = room;
 
-  console.log(room);
-
   const queryClient = useQueryClient();
 
   const { isLoading: isDeleting, mutate } = useMutation({

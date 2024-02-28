@@ -10,10 +10,16 @@
 
 // export default Input;
 
-export default function Input({ type, defalutValue, register, name }) {
+export default function Input({
+  type,
+  defalutValue,
+  register,
+  name,
+  registerObject,
+}) {
   return (
     <input
-      {...register(name)}
+      {...register(name, registerObject)}
       type={type}
       defaultValue={defalutValue}
       className="peer w-full h-full bg-transparent text-emerald-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-emerald-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-emerald-gray-200 placeholder-shown:border-t-emerald-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-[1.7rem] px-4 py-8 rounded-[7px] border-emerald-gray-200 focus:border-emerald-500"
