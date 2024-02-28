@@ -24,7 +24,7 @@
 
 // export default FileInput;
 
-export default function FileInput() {
+export default function FileInput({ register, name, registerObject }) {
   return (
     <label
       htmlFor="uploadFile1"
@@ -48,7 +48,12 @@ export default function FileInput() {
         Drag & Drop or <span className="text-emerald-600">Choose file</span> to
         upload the room image
       </p>
-      <input type="file" id="uploadFile1" className="hidden" />
+      <input
+        type="file"
+        id="uploadFile1"
+        className="hidden"
+        {...register(name, registerObject)}
+      />
       <p className="text-xl text-gray-400 mt-2">
         PNG, JPG SVG, WEBP, and GIF are Allowed.
       </p>

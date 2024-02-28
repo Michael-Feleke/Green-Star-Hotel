@@ -131,7 +131,12 @@ function CreateRoomForm() {
       </FormRow>
 
       <FormRow>
-        <FileInput />
+        <FileInput
+          register={register}
+          name="image"
+          registerObject={{ required: "This field is required" }}
+        />
+        {errors?.image?.message && <Error>{errors.image.message}</Error>}
       </FormRow>
 
       <FormRow>
