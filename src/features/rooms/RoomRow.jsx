@@ -58,7 +58,7 @@ function RoomRow({ room }) {
             className={`object-cover w-full rounded-xl h-full`}
           />
         </div>
-        <div className="p-6 mb-6 h-auto">
+        <div className="p-6 mb-6 h-60">
           <div className="flex items-center justify-between mb-6">
             <p
               className={`blocktext-base antialiased font-bold leading-relaxed text-blue-gray-900 font-["Sono"]`}
