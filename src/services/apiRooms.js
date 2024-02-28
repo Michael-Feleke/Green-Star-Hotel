@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase, { supabaseUrl } from "./supabase";
 
 export async function getRooms() {
   const { data, error } = await supabase.from("Rooms").select("*");
@@ -17,13 +17,13 @@ export async function createRoom(newRoom) {
     ""
   );
 
-  const imagePath=
+  const imagePath = `${supabaseUrl}/storage/v1/object/public/room-images/${imageName}`;
 
   //https://jxdyxaoiqjnzjphbqtfu.supabase.co/storage/v1/object/public/room-images/room-001.jpg
 
   const { data, error } = await supabase
     .from("Rooms")
-    .insert([newRoom])
+    .insert([{ ...newRoom, image: imagePath }])
     .select();
 
   if (error) {
