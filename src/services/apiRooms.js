@@ -31,6 +31,10 @@ export async function createRoom(newRoom) {
     throw new Error("Rooms could not be created.");
   }
 
+  const { error: storageError } = await supabase.storage
+    .from("room-images")
+    .upload(imageName, newRoom.image);
+
   return data;
 }
 
