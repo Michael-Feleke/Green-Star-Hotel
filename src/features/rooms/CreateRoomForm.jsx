@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createRoom } from "../../services/apiRooms";
 import toast from "react-hot-toast";
+import Error from "../../ui/Error";
 
 function CreateRoomForm() {
   const { register, handleSubmit, reset, getValues, formState } = useForm();
@@ -50,6 +51,7 @@ function CreateRoomForm() {
           name="name"
         />
         <Label>Cabin Name</Label>
+        {errors?.name?.message && <Error>{errors.name.message}</Error>}
       </FormRow>
 
       <FormRow>
