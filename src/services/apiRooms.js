@@ -12,6 +12,15 @@ export async function getRooms() {
 }
 
 export async function createRoom(newRoom) {
+  const imageName = `${Math.random()}-${newRoom.image.name}`.replaceAll(
+    "/",
+    ""
+  );
+
+  const imagePath=
+
+  //https://jxdyxaoiqjnzjphbqtfu.supabase.co/storage/v1/object/public/room-images/room-001.jpg
+
   const { data, error } = await supabase
     .from("Rooms")
     .insert([newRoom])
