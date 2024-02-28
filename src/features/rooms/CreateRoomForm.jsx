@@ -68,16 +68,28 @@ function CreateRoomForm() {
           name="maxCapacity"
         />
         <Label>Maximum Capacity</Label>
+        {errors?.maxCapacity?.message && (
+          <Error>{errors.maxCapacity.message}</Error>
+        )}
       </FormRow>
 
       <FormRow>
         <Input
           type="number"
           register={register}
-          registerObject={{ required: "This field is required" }}
+          registerObject={{
+            required: "This field is required",
+            min: {
+              value: 1,
+              message: "Price should be greater than 0",
+            },
+          }}
           name="regularPrice"
         />
         <Label>Regular Price</Label>
+        {errors?.regularPrice?.message && (
+          <Error>{errors.regularPrice.message}</Error>
+        )}
       </FormRow>
 
       <FormRow>
@@ -90,10 +102,15 @@ function CreateRoomForm() {
             validate: (value) =>
               value < getValues().regularPrice ||
               "Discount should be less than the regular price",
+            min: {
+              value: 0,
+              message: "Discount should be greater than or equal 0",
+            },
           }}
           name="discount"
         />
         <Label>Discount</Label>
+        {errors?.discount?.message && <Error>{errors.discount.message}</Error>}
       </FormRow>
 
       <FormRow>
@@ -103,6 +120,9 @@ function CreateRoomForm() {
           registerObject={{ required: "This field is required" }}
         />
         <Label>Description for the room</Label>
+        {errors?.description?.message && (
+          <Error>{errors.description.message}</Error>
+        )}
       </FormRow>
 
       <FormRow>
