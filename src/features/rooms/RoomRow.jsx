@@ -66,13 +66,15 @@ function RoomRow({ room }) {
               Room Number: {name}
             </p>
             <div>
-              {discount > 0 && (
-                <p
-                  className={`block  text-2xl antialiased font-bold font-xl leading-relaxed text-blue-gray-900 font-["Sono"] line-through text-slate-400`}
-                >
-                  <span>{formatCurrency(regularPrice)}</span>
-                </p>
-              )}
+              <p
+                className={`block  text-2xl antialiased font-bold font-xl leading-relaxed text-blue-gray-900 font-["Sono"] ${
+                  discount ? "line-through text-slate-400" : ""
+                }  `}
+              >
+                <span>
+                  {discount > 0 ? formatCurrency(regularPrice) : "no dis"}
+                </span>
+              </p>
               <p
                 className={`block  antialiased text-2xl font-bold leading-relaxed text-blue-gray-900 font-["Sono"] text-black`}
               >

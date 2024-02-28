@@ -31,7 +31,8 @@ function CreateRoomForm() {
   });
 
   function onSubmit(data) {
-    mutate(data);
+    console.log(data);
+    mutate({ ...data });
   }
 
   function onError(errors) {
