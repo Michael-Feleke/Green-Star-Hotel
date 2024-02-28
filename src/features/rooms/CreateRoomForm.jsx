@@ -54,7 +54,13 @@ function CreateRoomForm() {
         <Input
           type="number"
           register={register}
-          registerObject={{ required: "This field is required" }}
+          registerObject={{
+            required: "This field is required",
+            min: {
+              value: 1,
+              message: "Capacity should be at least 1",
+            },
+          }}
           name="maxCapacity"
         />
         <Label>Maximum Capacity</Label>
