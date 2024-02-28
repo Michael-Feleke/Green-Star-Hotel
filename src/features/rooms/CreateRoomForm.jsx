@@ -11,7 +11,9 @@ import { createRoom } from "../../services/apiRooms";
 import toast from "react-hot-toast";
 
 function CreateRoomForm() {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, getValues, formState } = useForm();
+  const { errors } = formState;
+
   const queryClient = useQueryClient();
 
   const { mutate, isLoading: isAddingRoom } = useMutation({
@@ -81,7 +83,12 @@ function CreateRoomForm() {
           type="number"
           defaultValue={0}
           register={register}
-          registerObject={{ required: "This field is required" }}
+          registerObject={{
+            required: "This field is required",
+            validate: (value) =>
+              value < getValues().regularPrice ||
+              "Discount should be less than the regular price",
+          }}
           name="discount"
         />
         <Label>Discount</Label>
