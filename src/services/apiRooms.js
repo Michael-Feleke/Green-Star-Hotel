@@ -35,6 +35,14 @@ export async function createRoom(newRoom) {
     .from("room-images")
     .upload(imageName, newRoom.image);
 
+  if (storageError) {
+    await supabase.from("Rooms").delete().eq("id", data.id);
+    console.error(error);
+    throw new Error(
+      "Room image could not be uploaded and the cabin wasnot created."
+    );
+  }
+
   return data;
 }
 
